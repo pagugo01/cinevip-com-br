@@ -1,0 +1,91 @@
+---
+// src/pages/avaliacoes.astro - Prova Social e Avaliações de Clientes
+import Layout from '../layouts/Layout.astro';
+
+const reviews = [
+  {
+    name: 'Carlos Eduardo M.',
+    city: 'São Paulo - SP',
+    device: 'Smart TV Samsung Tizen',
+    rating: 5,
+    comment: 'Instalei na minha Samsung da sala e na LG do quarto. Estava cansado de pagar R$ 280 na Claro TV. O Cine VIP não trava nem em dia de clássico de futebol. Nota 10!'
+  },
+  {
+    name: 'Fernanda Ribeiro',
+    city: 'Rio de Janeiro - RJ',
+    device: 'Amazon Fire TV Stick 4K',
+    rating: 5,
+    comment: 'O suporte pelo WhatsApp me atendeu em menos de 2 minutos e me mandou o teste. Em 5 minutos já estava funcionando com os canais e séries em 4K. Recomendo muito.'
+  },
+  {
+    name: 'Lucas Silveira',
+    city: 'Belo Horizonte - MG',
+    device: 'TV Box Xiaomi Mi Box S',
+    rating: 5,
+    comment: 'Peguei o plano semestral de 3 telas. Meus filhos assistem desenhos no tablet, minha esposa vê novela no quarto e eu assisto Premiere e UFC na sala. Economia gigantesca!'
+  },
+  {
+    name: 'Rodrigo Antunes',
+    city: 'Curitiba - PR',
+    device: 'Smart TV LG webOS',
+    rating: 5,
+    comment: 'Qualidade de imagem surreal, 60 FPS nos esportes faz toda a diferença para quem gosta de futebol. Muito superior a outros IPTVs baratos que já testei.'
+  }
+];
+---
+
+<Layout
+  title="Avaliações do Cine VIP: Nota 4,9 de 5 em 1.920 Opiniões Reais"
+  description="Veja o que os clientes dizem sobre o Cine VIP. Depoimentos sobre estabilidade de sinal, suporte humano no WhatsApp e qualidade de imagem em 4K nativo."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Avaliações', url: '/avaliacoes/' }
+  ]}
+>
+  <div class="py-16 bg-[#030712]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12">
+        <span class="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-500/20">
+          Opiniões Verificadas
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4">
+          Avaliações dos Clientes <span class="text-amber-400">Cine VIP</span>
+        </h1>
+        <div class="flex items-center justify-center gap-2 mt-4 text-amber-400 text-lg">
+          <span>★★★★★</span>
+          <span class="text-white font-bold text-sm">4.9 / 5.0 estrelas (1.920 avaliações)</span>
+        </div>
+      </div>
+
+      <div class="space-y-6 mb-12">
+        {reviews.map((r) => (
+          <div class="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 sm:p-7">
+            <div class="flex items-center justify-between gap-4 mb-3">
+              <div>
+                <h3 class="text-base font-bold text-white">{r.name}</h3>
+                <span class="text-xs text-slate-500">{r.city} • {r.device}</span>
+              </div>
+              <span class="text-amber-400 text-sm font-black">★★★★★</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+              "{r.comment}"
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-[#080d1a] to-amber-500/10 border border-amber-500/30 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">Quer testar antes de assinar?</h3>
+        <p class="text-xs sm:text-sm text-slate-400 mb-6">Solicite um teste VIP gratuito de 6 horas pelo WhatsApp +55 (11) 97200-8717.</p>
+        <a 
+          href="/ir/teste-gratis/"
+          class="inline-block px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider hover:scale-105 transition-transform"
+        >
+          Solicitar Teste VIP no WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>

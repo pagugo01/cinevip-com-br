@@ -1,0 +1,257 @@
+---
+// src/layouts/Layout.astro - Master Layout para Cine VIP
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileBottomDock from '../components/MobileBottomDock.astro';
+import FloatingPills from '../components/FloatingPills.astro';
+import { SITE_CONFIG } from '../config/site';
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const {
+  title = `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+  description = SITE_CONFIG.description,
+  ogImage = `${SITE_CONFIG.url}/og-image.jpg`,
+  breadcrumbs = []
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, SITE_CONFIG.url).href.replace(/\/$/, '') + '/';
+
+const jsonLdGraph: any[] = [
+  {
+    "@type": "WebSite",
+    "@id": `${SITE_CONFIG.url}/#website`,
+    "url": SITE_CONFIG.url,
+    "name": SITE_CONFIG.name,
+    "description": SITE_CONFIG.description,
+    "inLanguage": "pt-BR"
+  },
+  {
+    "@type": "Organization",
+    "@id": `${SITE_CONFIG.url}/#organization`,
+    "name": SITE_CONFIG.name,
+    "url": SITE_CONFIG.url,
+    "logo": `${SITE_CONFIG.url}/images/logo-512.png`,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-11-97200-8717",
+      "contactType": "customer service",
+      "availableLanguage": "Portuguese",
+      "areaServed": "BR"
+    },
+    "knowsAbout": [
+      "IPTV 4K",
+      "Cine VIP",
+      "Filmes e Séries 4K",
+      "Smart TV Samsung Tizen",
+      "Smart TV LG webOS",
+      "Fire TV Stick",
+      "TV Box Android",
+      "IPTV Smarters Pro",
+      "TiviMate",
+      "Futebol ao Vivo Pay-per-view"
+    ]
+  },
+  {
+    "@type": "Product",
+    "@id": `${SITE_CONFIG.url}/#product`,
+    "name": "Assinatura Cine VIP 4K Ultra HD",
+    "description": "Acesso VIP a mais de 120 mil conteúdos em 4K nativo, lançamentos de cinema, séries completas e canais ao vivo para até 3 telas com suporte imediato via WhatsApp.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Cine VIP"
+    },
+    "image": `${SITE_CONFIG.url}/images/logo-512.png`,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "ratingCount": "1920"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "BRL",
+      "lowPrice": "30.00",
+      "highPrice": "240.00",
+      "offerCount": "4",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Plano VIP Mensal (2 Telas)",
+          "price": "30.00",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock",
+          "url": `${SITE_CONFIG.url}/ir/plano-mensal/`
+        },
+        {
+          "@type": "Offer",
+          "name": "Plano VIP Trimestral (2 Telas)",
+          "price": "70.00",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock",
+          "url": `${SITE_CONFIG.url}/ir/plano-trimestral/`
+        },
+        {
+          "@type": "Offer",
+          "name": "Plano VIP Semestral (3 Telas)",
+          "price": "130.00",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock",
+          "url": `${SITE_CONFIG.url}/ir/plano-semestral/`
+        },
+        {
+          "@type": "Offer",
+          "name": "Plano VIP Anual (3 Telas)",
+          "price": "240.00",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock",
+          "url": `${SITE_CONFIG.url}/ir/plano-anual/`
+        }
+      ]
+    }
+  },
+  {
+    "@type": "FAQPage",
+    "@id": `${SITE_CONFIG.url}/#faq`,
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "O que é o Cine VIP e como funciona?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O Cine VIP é a plataforma definitiva de streaming sob demanda e canais ao vivo em ultra resolução 4K. Você tem acesso a mais de 120 mil conteúdos em Smart TV, TV Box ou celular, sem fidelidade e sem antenas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como solicito meu teste grátis de 6 horas no Cine VIP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Basta clicar em Teste Grátis no site e enviar uma mensagem no WhatsApp +55 (11) 97200-8717. Seu acesso VIP é liberado em menos de 2 minutos sem necessidade de cartão de crédito."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quantas telas posso usar ao mesmo tempo no Cine VIP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nossos planos liberam de 2 até 3 telas simultâneas na mesma residência para toda a família assistir em aparelhos diferentes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Em quais aparelhos o Cine VIP funciona?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Smart TVs Samsung, LG, Roku TV, Android TV, Fire TV Stick, TV Box, Celulares Android, iPhone (iOS) e computadores."
+        }
+      }
+    ]
+  }
+];
+
+if (breadcrumbs.length > 0) {
+  jsonLdGraph.push({
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}#breadcrumb`,
+    "itemListElement": breadcrumbs.map((b, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": b.name,
+      "item": b.url.startsWith('http') ? b.url : `${SITE_CONFIG.url}${b.url}`
+    }))
+  });
+}
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Favicon Suite Padrão Ouro -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#030712" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured Data com Rich Snippets -->
+    <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@graph": jsonLdGraph })} />
+
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style is:global>
+      :root {
+        --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      }
+      html {
+        font-family: var(--font-sans);
+        background-color: #030712;
+        color: #f1f5f9;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        position: relative;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background-color: #030712;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .safe-bottom {
+        padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+      }
+    </style>
+  </head>
+  <body class="bg-[#030712] text-slate-100 antialiased selection:bg-amber-400 selection:text-black pb-20 md:pb-0">
+    <Header />
+    <main class="pt-[58px] sm:pt-[64px]">
+      <slot />
+    </main>
+    <Footer />
+    <FloatingPills />
+    <MobileBottomDock />
+  </body>
+</html>

@@ -1,0 +1,98 @@
+---
+// src/pages/aparelhos/index.astro - Hub Geral de Aparelhos
+import Layout from '../../layouts/Layout.astro';
+
+const devicesList = [
+  {
+    name: 'Smart TV Samsung',
+    os: 'Tizen OS',
+    desc: 'Passo a passo com os melhores players nativos da loja oficial Samsung Apps.',
+    link: '/aparelhos/smart-tv-samsung/'
+  },
+  {
+    name: 'Smart TV LG',
+    os: 'webOS',
+    desc: 'Como instalar de forma rápida na LG Content Store sem travar.',
+    link: '/aparelhos/smart-tv-lg/'
+  },
+  {
+    name: 'Amazon Fire TV Stick',
+    os: 'Fire OS',
+    desc: 'Instalação via Downloader com qualidade 4K a 60 FPS fluida.',
+    link: '/aparelhos/fire-tv-stick/'
+  },
+  {
+    name: 'TV Box Android & Mi Box',
+    os: 'Android TV',
+    desc: 'Compatibilidade com todos os modelos TX9, MXQ, Xiaomi e Realme.',
+    link: '/aparelhos/tv-box-android/'
+  },
+  {
+    name: 'Chromecast & Google TV',
+    os: 'Google TV',
+    desc: 'Como configurar direto pela Google Play Store em 2 minutos.',
+    link: '/aparelhos/chromecast/'
+  },
+  {
+    name: 'Celular & Tablet',
+    os: 'Android e iPhone (iOS)',
+    desc: 'Assista no trânsito, viagens ou trabalho com consumo inteligente de dados.',
+    link: '/aparelhos/celular-e-tablet/'
+  }
+];
+---
+
+<Layout
+  title="Como Instalar Cine VIP: Smart TV, TV Box, Fire Stick e Celular"
+  description="O mapa completo de instalação do Cine VIP para qualquer tela. Escolha o seu aparelho e siga o passo a passo com suporte via WhatsApp."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Aparelhos', url: '/aparelhos/' }
+  ]}
+>
+  <div class="py-16 bg-[#030712]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-500/20">
+          Guia de Instalação por Tela
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4">
+          Tenho este aparelho, o que faço?
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-3 font-medium">
+          Selecione a sua Smart TV ou dispositivo abaixo para ver o tutorial exato com os melhores aplicativos testados.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {devicesList.map((d) => (
+          <a 
+            href={d.link}
+            class="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 hover:border-amber-400 transition-all duration-200 group flex flex-col justify-between hover:scale-[1.02]"
+          >
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-2xl">📺</span>
+                <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-800 text-amber-300 font-bold border border-slate-700">
+                  {d.os}
+                </span>
+              </div>
+              <h2 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
+                {d.name}
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                {d.desc}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-amber-400">
+              <span>Ver tutorial passo a passo</span>
+              <span>→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>

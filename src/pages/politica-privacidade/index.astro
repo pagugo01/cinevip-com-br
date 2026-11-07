@@ -1,0 +1,29 @@
+---
+// src/pages/politica-privacidade/index.astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Política de Privacidade | Cine VIP Oficial"
+  description="Política de privacidade e proteção de dados da plataforma Cine VIP (cinevip.com.br)."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Política de Privacidade', url: '/politica-privacidade/' }
+  ]}
+>
+  <div class="py-16 bg-[#030712]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-xs sm:text-sm text-slate-400 space-y-6 leading-relaxed">
+      <h1 class="text-3xl font-black text-white mb-6">Política de Privacidade</h1>
+      <p>A sua privacidade é prioridade para o Cine VIP. Esta política descreve como tratamos as informações coletadas durante sua navegação e contato.</p>
+      
+      <h2 class="text-lg font-bold text-white">1. Coleta de Informações</h2>
+      <p>Não coletamos nem armazenamos números de cartão de crédito em nosso servidor. As informações trocadas durante o atendimento ocorrem diretamente pelo aplicativo seguro do WhatsApp.</p>
+
+      <h2 class="text-lg font-bold text-white">2. Uso de Dados</h2>
+      <p>Os dados de contato são utilizados estritamente para envio das credenciais de teste, configuração técnica de aplicativos e suporte ao cliente.</p>
+
+      <h2 class="text-lg font-bold text-white">3. Segurança</h2>
+      <p>Nosso site utiliza criptografia HTTPS e conexões protegidas por CDN de alto nível contra acessos não autorizados.</p>
+    </div>
+  </div>
+</Layout>

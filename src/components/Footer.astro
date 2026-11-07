@@ -1,0 +1,162 @@
+---
+// src/components/Footer.astro - Footer Completo de SEO com 4 Colunas
+import { SITE_CONFIG } from '../config/site';
+
+const col1Comece = [
+  { label: 'Teste VIP 6 Horas', href: '/teste-gratis/' },
+  { label: 'Planos e Preços', href: '/planos/' },
+  { label: 'Planos 2 Telas', href: '/2-telas/' },
+  { label: 'Planos 3 Telas', href: '/3-telas/' },
+  { label: 'Como Funciona', href: '/como-funciona/' },
+  { label: 'Dúvidas Frequentes', href: '/#faq' }
+];
+
+const col2Aparelhos = [
+  { label: 'Smart TV Samsung (Tizen)', href: '/aparelhos/smart-tv-samsung/' },
+  { label: 'Smart TV LG (webOS)', href: '/aparelhos/smart-tv-lg/' },
+  { label: 'Amazon Fire TV Stick', href: '/aparelhos/fire-tv-stick/' },
+  { label: 'TV Box Android', href: '/aparelhos/tv-box-android/' },
+  { label: 'Chromecast & Google TV', href: '/aparelhos/chromecast/' },
+  { label: 'Celular & Tablet', href: '/aparelhos/celular-e-tablet/' }
+];
+
+const col3AppsGuias = [
+  { label: 'IPTV Smarters Pro', href: '/aplicativos/iptv-smarters-pro/' },
+  { label: 'TiviMate IPTV Player', href: '/aplicativos/tivimate/' },
+  { label: 'IPTV Travando: O que Fazer', href: '/guias/iptv-travando-solucoes/' },
+  { label: 'Velocidade de Internet Recomendada', href: '/guias/velocidade-internet/' },
+  { label: 'Duas TVs na Mesma Casa', href: '/guias/duas-tvs-na-mesma-casa/' },
+  { label: 'O que é IPTV e Como Funciona', href: '/guias/o-que-e-iptv/' }
+];
+
+const col4Institucional = [
+  { label: 'Avaliações dos Clientes (4.9★)', href: '/avaliacoes/' },
+  { label: 'Metodologia Editorial', href: '/metodologia-editorial/' },
+  { label: 'Contato & Suporte', href: '/contato/' },
+  { label: 'Termos de Uso', href: '/termos-uso/' },
+  { label: 'Política de Privacidade', href: '/politica-privacidade/' },
+  { label: 'WhatsApp Oficial: +55 (11) 97200-8717', href: '/ir/whatsapp/' }
+];
+---
+
+<footer class="bg-[#02040a] border-t border-amber-500/10 pt-16 pb-24 md:pb-12 text-slate-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    
+    <!-- Topo do Footer com Descrição e Selos -->
+    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-12 border-b border-slate-800/80">
+      <div class="max-w-xl">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center text-black font-black text-xs">
+            VIP
+          </div>
+          <span class="text-xl font-black text-white tracking-tight">CINE VIP</span>
+          <span class="text-xs px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-bold border border-amber-500/20">OFICIAL</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+          O serviço mais completo de entretenimento sob demanda e canais em ultra definição 4K nativo. Mais de 120 mil títulos liberados sem fidelidade e com suporte prioritário humano.
+        </p>
+      </div>
+
+      <!-- Selos de Confiança -->
+      <div class="flex flex-wrap items-center gap-4 text-xs font-bold text-slate-300">
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+          <span class="text-amber-400 font-black">★ 4.9 / 5.0</span>
+          <span class="text-slate-400 font-normal">(1.920 avaliações)</span>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Sinal 100% Estável CDN</span>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+          <span>🔒 SSL Criptografado</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid de 4 Colunas com Links Internos (Hierarquia de Silos SEO) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-12">
+      
+      <!-- Coluna 1 -->
+      <div>
+        <h3 class="text-xs font-black text-white uppercase tracking-wider mb-4 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          Comece Aqui
+        </h3>
+        <ul class="space-y-2.5 text-xs">
+          {col1Comece.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-amber-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Coluna 2 -->
+      <div>
+        <h3 class="text-xs font-black text-white uppercase tracking-wider mb-4 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          Aparelhos
+        </h3>
+        <ul class="space-y-2.5 text-xs">
+          {col2Aparelhos.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-amber-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Coluna 3 -->
+      <div>
+        <h3 class="text-xs font-black text-white uppercase tracking-wider mb-4 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          Aplicativos & Guias
+        </h3>
+        <ul class="space-y-2.5 text-xs">
+          {col3AppsGuias.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-amber-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Coluna 4 -->
+      <div>
+        <h3 class="text-xs font-black text-white uppercase tracking-wider mb-4 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          Cine VIP Oficial
+        </h3>
+        <ul class="space-y-2.5 text-xs">
+          {col4Institucional.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-amber-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Linha Inferior com Copyright -->
+    <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <p>© {new Date().getFullYear()} Cine VIP — Todos os direitos reservados. cinevip.com.br</p>
+      <div class="flex items-center gap-4 text-[11px]">
+        <a href="/termos-uso/" class="hover:text-slate-400">Termos</a>
+        <span>•</span>
+        <a href="/politica-privacidade/" class="hover:text-slate-400">Privacidade</a>
+        <span>•</span>
+        <a href="/llms.txt" class="hover:text-slate-400">llms.txt</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

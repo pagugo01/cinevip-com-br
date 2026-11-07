@@ -1,0 +1,59 @@
+---
+// src/components/Header.astro - Header Fixo VIP
+import { SITE_CONFIG } from '../config/site';
+
+const navItems = [
+  { label: 'Início', href: '/' },
+  { label: 'Planos', href: '/planos/' },
+  { label: 'Aparelhos', href: '/aparelhos/' },
+  { label: 'Aplicativos', href: '/aplicativos/' },
+  { label: 'Guias', href: '/guias/' },
+  { label: 'Como Funciona', href: '/como-funciona/' },
+  { label: 'Avaliações', href: '/avaliacoes/' }
+];
+---
+
+<header class="fixed top-0 inset-x-0 z-40 bg-[#030712]/95 backdrop-blur-md border-b border-amber-500/10 shadow-lg shadow-black/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-[58px] sm:h-[64px] flex items-center justify-between gap-4">
+    
+    <!-- Logo Cine VIP -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform duration-200">
+        <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <div class="flex items-center gap-1.5">
+          <span class="text-lg sm:text-xl font-black tracking-tight text-white group-hover:text-amber-400 transition-colors">CINE</span>
+          <span class="px-1.5 py-0.5 rounded-md bg-gradient-to-r from-amber-400 to-yellow-500 text-black text-[10px] font-black tracking-wider uppercase shadow-sm">VIP</span>
+        </div>
+        <span class="text-[9px] text-slate-400 font-bold tracking-widest uppercase hidden sm:block">4K ULTRA HD STREAMING</span>
+      </div>
+    </a>
+
+    <!-- Menu Desktop -->
+    <nav class="hidden lg:flex items-center gap-6">
+      {navItems.map((item) => (
+        <a 
+          href={item.href} 
+          class="text-xs font-bold text-slate-300 hover:text-amber-400 transition-colors uppercase tracking-wider"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Botões de Ação (Direita) -->
+    <div class="flex items-center gap-3">
+      <a 
+        href="/ir/teste-gratis/"
+        class="inline-flex items-center gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 text-xs sm:text-sm font-black uppercase tracking-wider shadow-lg shadow-amber-500/25 hover:scale-105 transition-all duration-200"
+      >
+        <span class="w-2 h-2 rounded-full bg-slate-950 animate-pulse"></span>
+        <span>Teste VIP 6h</span>
+      </a>
+    </div>
+
+  </div>
+</header>

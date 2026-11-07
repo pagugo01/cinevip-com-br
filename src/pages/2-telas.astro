@@ -1,0 +1,43 @@
+---
+// src/pages/2-telas.astro - Silo Comercial 2 Telas
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Plano Cine VIP 2 Telas Simultâneas | Assista em Dois Aparelhos em 4K"
+  description="Assine o Cine VIP para 2 telas simultâneas. Assista na Smart TV da sala e no celular ou quarto ao mesmo tempo sem travar e sem pagar duas assinaturas."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: '2 Telas', url: '/2-telas/' }
+  ]}
+>
+  <div class="py-16 sm:py-24 bg-[#030712]">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <span class="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-500/20">
+        Ideal para Casais e Residências com 2 Aparelhos
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4 mb-6">
+        Cine VIP para <span class="text-amber-400">2 Telas Simultâneas</span> em 4K Nativo
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto mb-8 font-medium leading-relaxed">
+        Nunca mais brigue pelo controle remoto. Uma pessoa assiste futebol na sala enquanto a outra assiste sua novela ou série favorita no quarto, tudo com uma única conta.
+      </p>
+
+      <div class="bg-[#080d1a] border border-amber-500/30 rounded-3xl p-8 max-w-lg mx-auto shadow-xl shadow-amber-500/10 mb-8">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Apenas</span>
+        <div class="flex items-baseline justify-center gap-1 mb-4">
+          <span class="text-slate-400 text-sm">R$</span>
+          <span class="text-5xl font-black text-white">30</span>
+          <span class="text-slate-400 text-sm">,00 / mês</span>
+        </div>
+        <p class="text-xs text-slate-400 mb-6">Equivale a apenas R$ 15,00 por tela para toda a programação liberada!</p>
+        <a 
+          href="/ir/2-telas/"
+          class="w-full py-4 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black text-sm uppercase tracking-wider block shadow-lg hover:scale-105 transition-transform"
+        >
+          Pedir Teste Grátis 2 Telas
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

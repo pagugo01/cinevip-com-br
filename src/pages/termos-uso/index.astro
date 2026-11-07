@@ -1,0 +1,29 @@
+---
+// src/pages/termos-uso/index.astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Termos de Uso | Cine VIP Oficial"
+  description="Termos de uso e condições gerais da plataforma Cine VIP (cinevip.com.br)."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Termos de Uso', url: '/termos-uso/' }
+  ]}
+>
+  <div class="py-16 bg-[#030712]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-xs sm:text-sm text-slate-400 space-y-6 leading-relaxed">
+      <h1 class="text-3xl font-black text-white mb-6">Termos de Uso</h1>
+      <p>Bem-vindo ao Cine VIP (cinevip.com.br). Ao acessar nosso site e solicitar testes gratuitos ou contratações de planos, você concorda com os seguintes termos e condições:</p>
+      
+      <h2 class="text-lg font-bold text-white">1. Natureza do Serviço</h2>
+      <p>O Cine VIP oferece suporte e intermediação de soluções de streaming e transmissão digital sob demanda via internet para dispositivos compatíveis.</p>
+
+      <h2 class="text-lg font-bold text-white">2. Teste Gratuito</h2>
+      <p>O período de teste é concedido por até 6 horas sem compromisso de contratação. Nenhuma cobrança automática é realizada ao término do período de teste.</p>
+
+      <h2 class="text-lg font-bold text-white">3. Atendimento e Suporte</h2>
+      <p>O suporte ao usuário é realizado exclusivamente através dos canais oficiais informados neste site, prioritariamente via WhatsApp (+55 11 97200-8717).</p>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,84 @@
+---
+// src/pages/planos.astro - Hub Comercial de Planos Cine VIP
+import Layout from '../layouts/Layout.astro';
+import PricingSection from '../components/PricingSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+---
+
+<Layout
+  title="Planos Cine VIP a partir de R$ 30,00 | 2 e 3 Telas Simultâneas em 4K"
+  description="Conheça os planos oficiais do Cine VIP. Planos Mensal, Trimestral, Semestral e Anual sem fidelidade com acesso a mais de 120 mil filmes, séries e canais em 4K."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Planos e Preços', url: '/planos/' }
+  ]}
+>
+  <div class="py-12 bg-gradient-to-b from-[#080d1a] to-[#030712] border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <span class="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-500/20">
+        Preços Transparentes Sem Pegadinhas
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4">
+        Planos e Preços Oficiais <span class="text-amber-400">Cine VIP</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 mt-3 font-medium max-w-2xl mx-auto">
+        Quanto sai por mês e por tela. Liberado para Smart TV, TV Box e celular com ativação imediata via WhatsApp.
+      </p>
+    </div>
+  </div>
+
+  <PricingSection />
+
+  <section class="py-16 bg-[#080d1a] border-t border-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-white tracking-tight text-center mb-8">
+        Comparativo: Quanto custa cada plano por tela?
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-amber-400 uppercase font-black">
+              <th class="py-3 px-4">Plano</th>
+              <th class="py-3 px-4">Valor Total</th>
+              <th class="py-3 px-4">Telas</th>
+              <th class="py-3 px-4">Custo por Mês</th>
+              <th class="py-3 px-4">Ação</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/80">
+            <tr>
+              <td class="py-4 px-4 font-bold text-white">VIP Mensal</td>
+              <td class="py-4 px-4">R$ 30,00</td>
+              <td class="py-4 px-4">2 Telas</td>
+              <td class="py-4 px-4">R$ 30,00 / mês</td>
+              <td class="py-4 px-4"><a href="/ir/plano-mensal/" class="text-amber-400 font-bold hover:underline">Contratar</a></td>
+            </tr>
+            <tr>
+              <td class="py-4 px-4 font-bold text-white">VIP Trimestral</td>
+              <td class="py-4 px-4">R$ 70,00</td>
+              <td class="py-4 px-4">2 Telas</td>
+              <td class="py-4 px-4">R$ 23,33 / mês</td>
+              <td class="py-4 px-4"><a href="/ir/plano-trimestral/" class="text-amber-400 font-bold hover:underline">Contratar</a></td>
+            </tr>
+            <tr class="bg-amber-500/5">
+              <td class="py-4 px-4 font-bold text-amber-300">VIP Semestral 🔥</td>
+              <td class="py-4 px-4 font-bold text-white">R$ 130,00</td>
+              <td class="py-4 px-4 font-bold text-emerald-400">3 Telas</td>
+              <td class="py-4 px-4">R$ 21,66 / mês</td>
+              <td class="py-4 px-4"><a href="/ir/plano-semestral/" class="text-amber-400 font-bold hover:underline">Contratar</a></td>
+            </tr>
+            <tr>
+              <td class="py-4 px-4 font-bold text-white">VIP Anual</td>
+              <td class="py-4 px-4">R$ 240,00</td>
+              <td class="py-4 px-4 font-bold text-emerald-400">3 Telas</td>
+              <td class="py-4 px-4 text-emerald-400 font-bold">R$ 20,00 / mês</td>
+              <td class="py-4 px-4"><a href="/ir/plano-anual/" class="text-amber-400 font-bold hover:underline">Contratar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection />
+</Layout>

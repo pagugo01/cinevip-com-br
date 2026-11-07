@@ -1,0 +1,165 @@
+---
+// src/components/PricingSection.astro - Tabela de Planos Oficiais VIP
+import { SITE_CONFIG } from '../config/site';
+
+const plans = [
+  {
+    name: 'Plano Mensal',
+    badge: 'Flexível',
+    price: '30',
+    period: 'por mês',
+    screens: '2 Telas Simultâneas',
+    desc: 'Perfeito para testar toda a grade em Smart TV e Celular.',
+    features: [
+      'Mais de 120.000 Filmes & Séries',
+      'Canais ao Vivo em 4K nativo 60FPS',
+      'Futebol Pay-Per-View e Combate',
+      '2 Telas Simultâneas',
+      'Sem Contrato e Sem Fidelidade',
+      'Suporte VIP via WhatsApp'
+    ],
+    popular: false,
+    link: '/ir/plano-mensal/'
+  },
+  {
+    name: 'Plano Trimestral',
+    badge: 'Mais Econômico',
+    price: '70',
+    oldPrice: '90',
+    period: 'a cada 3 meses',
+    screens: '2 Telas Simultâneas',
+    desc: 'Economize R$ 20 contratando o ciclo de 3 meses.',
+    features: [
+      'Tudo do Plano Mensal',
+      '2 Telas Simultâneas',
+      'Economia imediata de R$ 20',
+      'Prioridade na atualização de grade',
+      'EPG Completo com Programação',
+      'Suporte VIP via WhatsApp'
+    ],
+    popular: false,
+    link: '/ir/plano-trimestral/'
+  },
+  {
+    name: 'Plano Semestral',
+    badge: 'MAIS ESCOLHIDO 🔥',
+    price: '130',
+    oldPrice: '180',
+    period: 'a cada 6 meses',
+    screens: '3 Telas Simultâneas',
+    desc: 'Liberado para 3 aparelhos simultâneos para toda a família.',
+    features: [
+      '3 Telas Simultâneas Liberadas',
+      'Mais de 120.000 Filmes & Séries 4K',
+      'Canais ao Vivo e Pay-Per-View',
+      'Economia de R$ 50 reais',
+      'Servidor Exclusivo Anti-Oscilação',
+      'Ativação Imediata via WhatsApp'
+    ],
+    popular: true,
+    link: '/ir/plano-semestral/'
+  },
+  {
+    name: 'Plano Anual',
+    badge: '50% OFF (R$ 20/MÊS)',
+    price: '240',
+    oldPrice: '360',
+    period: 'por 1 ano completo',
+    screens: '3 Telas Simultâneas',
+    desc: 'O valor mais baixo do mercado. Apenas R$ 20 por mês.',
+    features: [
+      '3 Telas Simultâneas Liberadas',
+      'Apenas R$ 20 por mês equivalente',
+      'Economia gigante de R$ 120 no ano',
+      'Acesso VIP a todos os lançamentos',
+      'Estabilidade garantida o ano todo',
+      'Suporte Prioritário 24/7'
+    ],
+    popular: false,
+    link: '/ir/plano-anual/'
+  }
+];
+---
+
+<section id="planos" class="py-16 sm:py-24 bg-[#030712] relative overflow-hidden">
+  <!-- Brilho Dourado de Fundo -->
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    
+    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+        <span>Assinatura VIP Sem Fidelidade</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        Planos Oficiais <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500">Cine VIP</span>
+      </h2>
+      <p class="text-sm sm:text-base text-slate-300 mt-3 font-medium">
+        Escolha o período ideal para sua casa. Todos os planos incluem catálogo completo de lançamentos em 4K nativo e suporte via WhatsApp.
+      </p>
+    </div>
+
+    <!-- Grid dos 4 Planos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
+      {plans.map((plan) => (
+        <div class={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 ${
+          plan.popular 
+            ? 'bg-gradient-to-b from-[#1a1405] to-[#080d1a] border-2 border-amber-400 shadow-xl shadow-amber-500/20 scale-105 z-20' 
+            : 'bg-[#080d1a] border border-slate-800 hover:border-slate-700'
+        }`}>
+          
+          {plan.popular && (
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 text-xs font-black uppercase tracking-wider shadow-lg">
+              {plan.badge}
+            </div>
+          )}
+
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-sm font-black text-amber-400 uppercase tracking-wider">{plan.name}</span>
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 font-bold border border-slate-700">
+                {plan.screens}
+              </span>
+            </div>
+
+            <p class="text-xs text-slate-400 font-medium mb-4">{plan.desc}</p>
+
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-xs font-bold text-slate-400">R$</span>
+              <span class="text-4xl sm:text-5xl font-black text-white tracking-tight">{plan.price}</span>
+              <span class="text-xs font-semibold text-slate-400">,00</span>
+              {plan.oldPrice && (
+                <span class="text-xs text-slate-500 line-through ml-2">R$ {plan.oldPrice}</span>
+              )}
+              <span class="text-xs text-slate-400 ml-1">/ {plan.period}</span>
+            </div>
+
+            <ul class="space-y-3 mb-8 text-xs text-slate-300">
+              {plan.features.map((feature) => (
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a 
+            href={plan.link}
+            class={`w-full py-3 sm:py-3.5 rounded-2xl font-black text-xs sm:text-sm text-center uppercase tracking-wider transition-all duration-200 block shadow-lg ${
+              plan.popular 
+                ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 shadow-amber-500/25 hover:scale-105' 
+                : 'bg-slate-800 hover:bg-slate-700 text-white hover:text-amber-400'
+            }`}
+          >
+            Assinar Agora
+          </a>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

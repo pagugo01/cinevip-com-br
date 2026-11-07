@@ -1,0 +1,102 @@
+---
+// src/pages/ir/[dest].astro - Roteador First-Party Estático de WhatsApp do Cine VIP
+import { SITE_CONFIG } from '../../config/site';
+
+export function getStaticPaths() {
+  const routes = [
+    { dest: 'whatsapp', message: 'Olá! Vim pelo Cine VIP (cinevip.com.br) e gostaria de mais informações.' },
+    { dest: 'teste-gratis', message: 'Olá! Vim pelo Cine VIP e quero solicitar meu TESTE GRÁTIS DE 6 HORAS sem compromisso!' },
+    { dest: 'plano-mensal', message: 'Olá! Gostaria de assinar o Plano VIP Mensal (R$ 30,00 - 2 Telas) no Cine VIP.' },
+    { dest: 'plano-trimestral', message: 'Olá! Gostaria de assinar o Plano VIP Trimestral (R$ 70,00 - 2 Telas) no Cine VIP.' },
+    { dest: 'plano-semestral', message: 'Olá! Gostaria de assinar o Plano VIP Semestral (R$ 130,00 - 3 Telas) no Cine VIP.' },
+    { dest: 'plano-anual', message: 'Olá! Gostaria de assinar o Plano VIP Anual (R$ 240,00 - 3 Telas - R$ 20/mês) no Cine VIP.' },
+    { dest: '2-telas', message: 'Olá! Vim pela página de 2 Telas do Cine VIP e quero meu teste grátis!' },
+    { dest: '3-telas', message: 'Olá! Vim pela página de 3 Telas do Cine VIP e quero meu teste grátis para a família!' },
+    { dest: 'samsung', message: 'Olá! Quero instalar o Cine VIP na minha Smart TV Samsung com Tizen. Podem me ajudar?' },
+    { dest: 'lg', message: 'Olá! Quero instalar o Cine VIP na minha Smart TV LG com webOS. Podem me ajudar?' },
+    { dest: 'fire-stick', message: 'Olá! Quero instalar o Cine VIP no meu Amazon Fire TV Stick. Como faço?' },
+    { dest: 'tv-box', message: 'Olá! Quero configurar o Cine VIP no meu TV Box Android. Podem me enviar o teste?' },
+    { dest: 'suporte', message: 'Olá! Preciso de suporte com a minha conexão Cine VIP.' },
+    { dest: 'revenda', message: 'Olá! Gostaria de saber como funciona o painel de revenda do Cine VIP.' }
+  ];
+
+  return routes.map((r) => ({
+    params: { dest: r.dest },
+    props: { message: r.message }
+  }));
+}
+
+const { message } = Astro.props;
+const targetUrl = `https://wa.me/${SITE_CONFIG.whatsapp.number}?text=${encodeURIComponent(message)}`;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`0;url=${targetUrl}`} />
+    <title>Redirecionando para o WhatsApp Oficial Cine VIP...</title>
+    <style>
+      body {
+        background-color: #030712;
+        color: #f1f5f9;
+        font-family: system-ui, -apple-system, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .card {
+        background: #080d1a;
+        border: 1px solid rgba(234, 179, 8, 0.2);
+        border-radius: 1.5rem;
+        padding: 2.5rem;
+        max-width: 440px;
+        width: 100%;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      }
+      .spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid rgba(234, 179, 8, 0.2);
+        border-top-color: #eab308;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: 0 auto 1.5rem;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .btn {
+        display: inline-block;
+        width: 100%;
+        padding: 0.875rem 1.25rem;
+        background: linear-gradient(to right, #eab308, #f59e0b);
+        color: #030712;
+        font-weight: 800;
+        text-decoration: none;
+        border-radius: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="spinner"></div>
+      <h1 style="font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 800;">Conectando ao WhatsApp Cine VIP...</h1>
+      <p style="color: #94a3b8; font-size: 0.875rem; margin: 0;">Você está sendo direcionado com atendimento prioritário.</p>
+      <a href={targetUrl} class="btn">Clique aqui para abrir agora</a>
+    </div>
+    <script define:vars={{ targetUrl }}>
+      window.location.href = targetUrl;
+    </script>
+  </body>
+</html>

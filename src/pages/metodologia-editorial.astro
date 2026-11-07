@@ -1,0 +1,54 @@
+---
+// src/pages/metodologia-editorial.astro - E-E-A-T e Transparência Editorial
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Metodologia Editorial: Como Testamos e Revisamos os Tutoriais | Cine VIP"
+  description="Conheça a metodologia técnica e editorial do Cine VIP. Transparência na seleção de aplicativos, testes de banda e configurações de Smart TVs."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Metodologia Editorial', url: '/metodologia-editorial/' }
+  ]}
+>
+  <article class="py-16 bg-[#030712]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <span class="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-500/20">
+        E-E-A-T & Transparência Técnica
+      </span>
+      
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4 mb-6">
+        Como Produzimos e Revisamos os <span class="text-amber-400">Guias e Tutoriais</span>
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-300 font-medium leading-relaxed mb-8">
+        No Cine VIP, nós nos comprometemos com a precisão técnica das informações publicadas. Nossos guias sobre Smart TVs, roteadores, aplicativos e velocidade de conexão não são gerados aleatoriamente; eles passam por bancadas reais de testes.
+      </p>
+
+      <div class="bg-[#080d1a] border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 text-xs sm:text-sm text-slate-300 mb-12">
+        <div>
+          <h2 class="text-lg font-bold text-white mb-2">1. Testes em Dispositivos Físicos</h2>
+          <p class="text-slate-400 leading-relaxed">
+            Todos os passos de instalação de Samsung Tizen, LG webOS e Amazon Fire Stick são validados em modelos reais de televisores de diferentes anos de fabricação.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold text-white mb-2">2. Atualização Constante de Lojas de Aplicativos</h2>
+          <p class="text-slate-400 leading-relaxed">
+            Monitoramos mensalmente as lojas oficiais (Samsung Apps, LG Content Store e Google Play) para garantir que os aplicativos recomendados continuem disponíveis e funcionais.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold text-white mb-2">3. Suporte Humano Direto</h2>
+          <p class="text-slate-400 leading-relaxed">
+            Qualquer dúvida que não esteja coberta nos guias pode ser esclarecida em tempo real com nossa equipe pelo WhatsApp +55 (11) 97200-8717.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </article>
+</Layout>

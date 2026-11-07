@@ -1,0 +1,25 @@
+---
+// src/pages/404.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Página Não Encontrada (404) | Cine VIP"
+  description="A página que você está procurando não existe ou foi movida."
+>
+  <div class="py-24 text-center px-4">
+    <span class="text-6xl font-black text-amber-400 block mb-4">404</span>
+    <h1 class="text-2xl sm:text-3xl font-black text-white mb-4">Página Não Encontrada</h1>
+    <p class="text-sm text-slate-400 max-w-md mx-auto mb-8">
+      O endereço que você tentou acessar não existe. Volte para a página inicial ou solicite suporte no WhatsApp.
+    </p>
+    <div class="flex items-center justify-center gap-4">
+      <a href="/" class="px-6 py-3 rounded-xl bg-amber-400 text-black font-bold text-xs uppercase">
+        Ir para o Início
+      </a>
+      <a href="/ir/whatsapp/" class="px-6 py-3 rounded-xl bg-slate-800 text-white font-bold text-xs uppercase">
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,77 @@
+---
+// src/pages/guias/index.astro - Hub Geral de Guias Editoriais
+import Layout from '../../layouts/Layout.astro';
+
+const guides = [
+  {
+    title: 'IPTV Travando: Causas Prováveis e Como Resolver de Vez',
+    desc: 'Do teste mais rápido ao mais definitivo: a ordem certa para acabar com travamentos na TV.',
+    link: '/guias/iptv-travando-solucoes/'
+  },
+  {
+    title: 'Velocidade de Internet Recomendada para IPTV 4K',
+    desc: 'Quantos megas de internet você realmente precisa para assistir sem oscilações em 4K, FHD e HD.',
+    link: '/guias/velocidade-internet/'
+  },
+  {
+    title: 'Como Usar em Duas ou Três TVs na Mesma Casa',
+    desc: 'Tudo sobre multi-telas simultâneas: roteamento de IP, consumo de banda e aparelhos compatíveis.',
+    link: '/guias/duas-tvs-na-mesma-casa/'
+  },
+  {
+    title: 'O que é IPTV e Como Funciona a Tecnologia',
+    desc: 'Entenda em palavras simples como o sinal de transmissão sai dos estúdios e chega à sua TV pela internet.',
+    link: '/guias/o-que-e-iptv/'
+  }
+];
+---
+
+<Layout
+  title="Guias Completos sobre IPTV, Internet e Resolução de Problemas | Cine VIP"
+  description="Biblioteca editorial com guias práticos sobre IPTV. Dicas de internet, soluções para travamentos e tutoriais passo a passo testados por especialistas."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Guias', url: '/guias/' }
+  ]}
+>
+  <div class="py-16 bg-[#030712]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-500/20">
+          Biblioteca Técnica & Guias
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4">
+          Guias e Soluções para sua TV
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-3 font-medium">
+          Artigos produzidos por quem realmente entende de infraestrutura de streaming e transmissão.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {guides.map((g) => (
+          <a 
+            href={g.link}
+            class="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-amber-400 transition-all duration-200 group flex flex-col justify-between hover:scale-[1.02]"
+          >
+            <div>
+              <span class="text-2xl mb-4 block">📖</span>
+              <h2 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
+                {g.title}
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                {g.desc}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-amber-400">
+              <span>Ler guia completo</span>
+              <span>→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>

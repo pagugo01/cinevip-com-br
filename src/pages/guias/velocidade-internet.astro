@@ -1,0 +1,62 @@
+---
+// src/pages/guias/velocidade-internet.astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Velocidade de Internet Recomendada para IPTV 4K | Cine VIP"
+  description="Quantos megas de internet são necessários para assistir IPTV em 4K, Full HD e HD sem travar? Guia de consumo de banda por tela e roteador."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Guias', url: '/guias/' },
+    { name: 'Velocidade de Internet', url: '/guias/velocidade-internet/' }
+  ]}
+>
+  <article class="py-16 bg-[#030712]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <span class="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-500/20">
+        Requisitos de Rede
+      </span>
+      
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4 mb-6">
+        Velocidade de Internet Recomendada para <span class="text-amber-400">IPTV em 4K</span>
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-300 font-medium leading-relaxed mb-8">
+        Ao contrário do que muitas pessoas pensam, não é necessário ter 500 Mega ou 1 Giga de internet para rodar IPTV com imagem perfeita. O fator mais importante é a **estabilidade do sinal (Ping e Jitter)**.
+      </p>
+
+      <div class="bg-[#080d1a] border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4 text-xs sm:text-sm text-slate-300 mb-12">
+        <h2 class="text-lg font-bold text-white mb-4">Tabela de Megas por Resolução (por tela):</h2>
+        
+        <div class="space-y-3">
+          <div class="p-3 bg-slate-900/60 rounded-xl flex items-center justify-between">
+            <span class="font-bold text-white">Canais em SD (Definição Padrão):</span>
+            <span class="text-emerald-400 font-black">5 a 10 Mbps</span>
+          </div>
+          <div class="p-3 bg-slate-900/60 rounded-xl flex items-center justify-between">
+            <span class="font-bold text-white">Canais e Filmes em Full HD (1080p):</span>
+            <span class="text-amber-400 font-black">15 a 25 Mbps</span>
+          </div>
+          <div class="p-3 bg-slate-900/60 rounded-xl flex items-center justify-between">
+            <span class="font-bold text-white">Lançamentos e Futebol em 4K Nativo (60 FPS):</span>
+            <span class="text-cyan-400 font-black">30 a 50 Mbps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-[#080d1a] to-amber-500/10 border border-amber-500/30 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">Quer testar com a sua velocidade atual?</h3>
+        <p class="text-xs sm:text-sm text-slate-400 mb-6">Solicite um teste gratuito de 6 horas pelo WhatsApp +55 (11) 97200-8717 e comprove a estabilidade.</p>
+        <a 
+          href="/ir/teste-gratis/"
+          class="inline-block px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider hover:scale-105 transition-transform"
+        >
+          Pedir Teste de Velocidade no WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </article>
+</Layout>

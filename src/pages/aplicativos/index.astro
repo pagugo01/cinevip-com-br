@@ -1,0 +1,71 @@
+---
+// src/pages/aplicativos/index.astro - Hub Geral de Aplicativos
+import Layout from '../../layouts/Layout.astro';
+
+const apps = [
+  {
+    name: 'IPTV Smarters Pro',
+    compat: 'Smart TVs, Android, iOS, Fire Stick, PC',
+    desc: 'O aplicativo mais popular e versátil do mundo. Suporta séries, filmes, EPG e controle parental.',
+    link: '/aplicativos/iptv-smarters-pro/'
+  },
+  {
+    name: 'TiviMate IPTV Player',
+    compat: 'Android TV, Fire Stick, TV Box',
+    desc: 'A melhor interface e organização de canais do mercado. Troca de canais instantânea estilo TV por assinatura.',
+    link: '/aplicativos/tivimate/'
+  }
+];
+---
+
+<Layout
+  title="Melhores Aplicativos para Cine VIP: Smarters Pro e TiviMate"
+  description="Conheça os melhores players e aplicativos compatíveis com o Cine VIP. Guias de instalação e configuração com suporte via WhatsApp."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Aplicativos', url: '/aplicativos/' }
+  ]}
+>
+  <div class="py-16 bg-[#030712]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-500/20">
+          Players Oficiais Recomendados
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4">
+          Aplicativos Compatíveis com o Cine VIP
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-3 font-medium">
+          Escolha o player ideal para o seu dispositivo e assista com estabilidade máxima.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {apps.map((app) => (
+          <a 
+            href={app.link}
+            class="bg-[#080d1a] border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-amber-400 transition-all duration-200 group flex flex-col justify-between hover:scale-[1.02]"
+          >
+            <div>
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-amber-300 font-bold border border-slate-700 block w-max mb-4">
+                {app.compat}
+              </span>
+              <h2 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
+                {app.name}
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                {app.desc}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-amber-400">
+              <span>Ver tutorial de configuração</span>
+              <span>→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,68 @@
+---
+// src/components/FaqSection.astro - Seção de Perguntas Frequentes
+import { SITE_CONFIG } from '../config/site';
+
+const faqs = [
+  {
+    q: 'O que é o Cine VIP e como ele funciona?',
+    a: 'O Cine VIP é a plataforma definitiva de streaming sob demanda e canais de TV ao vivo em ultra definição 4K. O sinal é transmitido 100% via internet através de aplicativo compatível com Smart TV, TV Box, Fire Stick, celular ou computador. Você não precisa de antenas, cabos ou aparelhos específicos.'
+  },
+  {
+    q: 'Como funciona o teste grátis de 6 horas?',
+    a: 'O teste é 100% gratuito e não exige cartão de crédito. Você clica em qualquer botão de Teste Grátis no site, envia uma mensagem para nosso WhatsApp oficial +55 (11) 97200-8717 e nossa equipe gera sua lista VIP com login e senha em menos de 2 minutos.'
+  },
+  {
+    q: 'Quantos aparelhos posso assistir ao mesmo tempo?',
+    a: 'Nossos planos liberam de 2 até 3 telas simultâneas na mesma residência. Isso significa que você pode assistir ao jogo de futebol na Smart TV da sala enquanto outra pessoa assiste a um filme ou novela no quarto ou no celular, sem travar nem desconectar.'
+  },
+  {
+    q: 'Quais aparelhos e Smart TVs são compatíveis?',
+    a: 'Todas as Smart TVs do mercado (Samsung Tizen, LG webOS, TCL, Philco, AOC, Philips, Roku TV e Android TV), além de TV Box, Amazon Fire TV Stick, Chromecast com Google TV, Celulares Android, iPhone (iOS) e computadores.'
+  },
+  {
+    q: 'Qual a velocidade de internet necessária para assistir sem travar?',
+    a: 'Recomendamos no mínimo 15 Mbps de internet para conteúdos em Full HD e 30 Mbps para canais e filmes em 4K nativo a 60 FPS. Para maior estabilidade, sugerimos conectar a TV no cabo de rede ou na rede Wi-Fi 5 GHz.'
+  },
+  {
+    q: 'Tem fidelidade ou multa de cancelamento?',
+    a: 'Nenhuma fidelidade. Você escolhe o plano (mensal, trimestral, semestral ou anual) e só renova se estiver 100% satisfeito com a qualidade e estabilidade do serviço.'
+  }
+];
+---
+
+<section id="faq" class="py-16 sm:py-24 bg-[#02040a] border-t border-slate-900 relative">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    
+    <div class="text-center mb-12 sm:mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
+        <span>Tire Suas Dúvidas</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+        Perguntas Frequentes sobre o <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400">Cine VIP</span>
+      </h2>
+      <p class="text-sm sm:text-base text-slate-400 mt-3 font-medium">
+        Tudo o que você precisa saber antes de solicitar seu teste VIP de 6 horas sem compromisso.
+      </p>
+    </div>
+
+    <!-- Lista de Acordeões -->
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <details class="group bg-[#080d1a] border border-slate-800 rounded-2xl p-5 sm:p-6 transition-all duration-200 hover:border-amber-500/30 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+            <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-amber-400 transition-colors">
+              {faq.q}
+            </h3>
+            <span class="w-7 h-7 rounded-full bg-slate-800 text-amber-400 flex items-center justify-center flex-shrink-0 group-open:rotate-180 transition-transform duration-200 font-black text-sm">
+              ↓
+            </span>
+          </summary>
+          <p class="mt-4 text-xs sm:text-sm text-slate-400 leading-relaxed pt-3 border-t border-slate-800/80">
+            {faq.a}
+          </p>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

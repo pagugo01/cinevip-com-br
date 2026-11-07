@@ -1,0 +1,21 @@
+{
+  "name": "cinevip-com-br",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Cine VIP - O Maior Catálogo VIP de Filmes, Séries e TV ao Vivo em 4K | Teste Grátis 6h",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^5.4.2",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  }
+}

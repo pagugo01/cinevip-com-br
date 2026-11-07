@@ -1,0 +1,61 @@
+---
+// src/pages/guias/o-que-e-iptv.astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="O que é IPTV e Como Funciona: Guia Básico Explicado Passo a Passo | Cine VIP"
+  description="Entenda em palavras simples o que é IPTV, como o sinal chega à sua TV pela internet e as vantagens em relação à TV a cabo tradicional."
+  breadcrumbs={[
+    { name: 'Início', url: '/' },
+    { name: 'Guias', url: '/guias/' },
+    { name: 'O que é IPTV', url: '/guias/o-que-e-iptv/' }
+  ]}
+>
+  <article class="py-16 bg-[#030712]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <span class="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-500/20">
+        Conceito Básico
+      </span>
+      
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4 mb-6">
+        O que é IPTV: <span class="text-amber-400">O Caminho do Sinal</span> até a sua Televisão
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-300 font-medium leading-relaxed mb-8">
+        IPTV significa <em>Internet Protocol Television</em> (Televisão por Protocolo de Internet). Em vez de receber as imagens por uma antena parabólica ou cabo coaxial na parede, os dados chegam compactados via pacotes de internet diretamente no aplicativo da sua Smart TV.
+      </p>
+
+      <div class="bg-[#080d1a] border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4 text-xs sm:text-sm text-slate-300 mb-12">
+        <h2 class="text-lg font-bold text-white mb-2">Por que o IPTV substituiu a TV por assinatura?</h2>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2">
+            <span class="text-amber-400 font-bold">✓</span>
+            <span><strong>Zero aparelhos caros alugados:</strong> Não há necessidade de decodificadores da operadora.</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-amber-400 font-bold">✓</span>
+            <span><strong>Sem fidelidade:</strong> Cancele ou renove quando quiser.</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-amber-400 font-bold">✓</span>
+            <span><strong>Catálogo on-demand gigante:</strong> Filmes que saíram do cinema disponíveis em 1 clique.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-[#080d1a] to-amber-500/10 border border-amber-500/30 text-center">
+        <h3 class="text-xl font-bold text-white mb-2">Experimente na prática sem pagar nada</h3>
+        <p class="text-xs sm:text-sm text-slate-400 mb-6">Faça um teste VIP de 6 horas no WhatsApp +55 (11) 97200-8717.</p>
+        <a 
+          href="/ir/teste-gratis/"
+          class="inline-block px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider hover:scale-105 transition-transform"
+        >
+          Pedir Teste Gratuito no WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </article>
+</Layout>

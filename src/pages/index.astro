@@ -1,0 +1,204 @@
+---
+// src/pages/index.astro - Página Inicial do Cine VIP
+import Layout from '../layouts/Layout.astro';
+import PricingSection from '../components/PricingSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { SITE_CONFIG } from '../config/site';
+
+const highlights = [
+  {
+    title: 'Mais de 120.000 Títulos em 4K Nativo',
+    desc: 'Lançamentos de cinema atualizados semanalmente, séries completas de todas as plataformas e novelas na íntegra.',
+    icon: 'film'
+  },
+  {
+    title: 'Sinal 100% Estável Anti-Travamento',
+    desc: 'Servidores dedicados com CDN de ultra velocidade. Assista a jogos de futebol e lutas sem oscilações e sem delay.',
+    icon: 'shield'
+  },
+  {
+    title: 'Até 3 Telas Simultâneas na Mesma Casa',
+    desc: 'Libere aparelhos diferentes para a sala, quarto e celular sem nenhum custo adicional e sem bloqueios de IP.',
+    icon: 'screens'
+  },
+  {
+    title: 'Ativação Imediata via WhatsApp em 2 Minutos',
+    desc: 'Nosso suporte é 100% humano. Sem robôs chatos, sem cartão de crédito e com liberação de teste grátis de 6 horas.',
+    icon: 'zap'
+  }
+];
+
+const devices = [
+  { name: 'Smart TV Samsung', os: 'Tizen OS', link: '/aparelhos/smart-tv-samsung/' },
+  { name: 'Smart TV LG', os: 'webOS', link: '/aparelhos/smart-tv-lg/' },
+  { name: 'Amazon Fire TV', os: 'Fire OS', link: '/aparelhos/fire-tv-stick/' },
+  { name: 'TV Box Android', os: 'Android TV', link: '/aparelhos/tv-box-android/' },
+  { name: 'Chromecast', os: 'Google TV', link: '/aparelhos/chromecast/' },
+  { name: 'iPhone & Android', os: 'iOS & Android', link: '/aparelhos/celular-e-tablet/' }
+];
+---
+
+<Layout
+  title={`${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`}
+  description={SITE_CONFIG.description}
+>
+  <!-- Hero Section Cinemático VIP -->
+  <section class="relative pt-12 pb-20 sm:pt-20 sm:pb-32 overflow-hidden bg-gradient-to-b from-[#030712] via-[#080d1a] to-[#030712]">
+    
+    <!-- Efeito Dourado Iluminado de Fundo -->
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-amber-500/15 via-yellow-400/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+      
+      <!-- Selo VIP Superior -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-black uppercase tracking-wider mb-6 shadow-lg shadow-amber-500/10 animate-pulse">
+        <span>👑 A Plataforma VIP de Streaming & TV 4K</span>
+      </div>
+
+      <!-- Título H1 Principal -->
+      <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] max-w-4xl mx-auto mb-6">
+        O Maior Catálogo <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">Cine VIP</span> com Lançamentos e Canais em 4K
+      </h1>
+
+      <p class="text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto mb-8 font-medium leading-relaxed">
+        Mais de 120.000 filmes, séries e canais ao vivo com sinal ultra estável. Assista em até 3 telas simultâneas na sua Smart TV, TV Box ou Celular.
+      </p>
+
+      <!-- Botões de Ação Principais -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-12">
+        <a 
+          href="/ir/teste-gratis/"
+          class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black text-sm uppercase tracking-wider shadow-xl shadow-amber-500/25 hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2.5"
+        >
+          <svg class="w-5 h-5 text-slate-950" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+          </svg>
+          <span>Pedir Teste VIP 6h Grátis</span>
+        </a>
+
+        <a 
+          href="#planos"
+          class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-800/80 hover:bg-slate-700 text-white font-bold text-sm uppercase tracking-wider border border-slate-700 hover:border-amber-400 transition-all duration-200"
+        >
+          Ver Planos e Preços
+        </a>
+      </div>
+
+      <!-- Métricas de Prova Social -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-800/60 text-center">
+        <div class="p-3">
+          <span class="block text-2xl sm:text-3xl font-black text-amber-400">+120 Mil</span>
+          <span class="text-xs text-slate-400 font-semibold">Títulos Disponíveis</span>
+        </div>
+        <div class="p-3">
+          <span class="block text-2xl sm:text-3xl font-black text-white">4K Nativo</span>
+          <span class="text-xs text-slate-400 font-semibold">60 FPS Ultra HD</span>
+        </div>
+        <div class="p-3">
+          <span class="block text-2xl sm:text-3xl font-black text-emerald-400">Até 3 Telas</span>
+          <span class="text-xs text-slate-400 font-semibold">Simultâneas na Casa</span>
+        </div>
+        <div class="p-3">
+          <span class="block text-2xl sm:text-3xl font-black text-amber-400">★ 4.9 / 5</span>
+          <span class="text-xs text-slate-400 font-semibold">1.920 Avaliações</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Diferenciais VIP -->
+  <section class="py-16 bg-[#02040a] border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+          Por que assinar o <span class="text-amber-400">Cine VIP</span>?
+        </h2>
+        <p class="text-sm text-slate-400 mt-2 font-medium">
+          Diferenciais exclusivos desenvolvidos para quem não quer dor de cabeça na hora de assistir.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {highlights.map((item) => (
+          <div class="bg-[#080d1a] border border-slate-800/80 rounded-2xl p-6 hover:border-amber-500/30 transition-all duration-200">
+            <div class="w-10 h-10 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center font-black mb-4">
+              ✓
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">{item.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Grade de Aparelhos Compatíveis (SEO Silo Link) -->
+  <section class="py-16 bg-[#030712] border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            Compatível com Qualquer Aparelho
+          </h2>
+          <p class="text-sm text-slate-400 mt-1 font-medium">
+            Selecione o seu aparelho e veja como instalar o Cine VIP em 3 passos rápidos.
+          </p>
+        </div>
+        <a href="/aparelhos/" class="text-xs font-black text-amber-400 hover:text-amber-300 uppercase tracking-wider flex items-center gap-1">
+          <span>Ver Todos os Aparelhos</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {devices.map((device) => (
+          <a 
+            href={device.link}
+            class="group bg-[#080d1a] border border-slate-800 rounded-2xl p-4 text-center hover:border-amber-400 transition-all duration-200 hover:scale-105"
+          >
+            <div class="w-12 h-12 mx-auto rounded-xl bg-slate-900 flex items-center justify-center text-amber-400 mb-3 group-hover:bg-amber-400 group-hover:text-black transition-colors">
+              📺
+            </div>
+            <h3 class="text-xs sm:text-sm font-bold text-white group-hover:text-amber-400 transition-colors">
+              {device.name}
+            </h3>
+            <span class="text-[11px] text-slate-500 font-semibold mt-0.5 block">
+              {device.os}
+            </span>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Tabela de Planos Oficiais -->
+  <PricingSection />
+
+  <!-- Perguntas Frequentes -->
+  <FaqSection />
+
+  <!-- CTA de Fim de Página -->
+  <section class="py-16 bg-gradient-to-r from-amber-950/40 via-[#080d1a] to-amber-950/40 border-t border-amber-500/20 text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight mb-4">
+        Pronto para experimentar o <span class="text-amber-400">Cine VIP</span> na sua TV?
+      </h2>
+      <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto mb-8 font-medium">
+        Solicite seu teste gratuito de 6 horas pelo WhatsApp agora mesmo. Sem pegadinhas, sem dados de cartão e com ativação imediata.
+      </p>
+      <a 
+        href="/ir/teste-gratis/"
+        class="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black text-sm uppercase tracking-wider shadow-xl shadow-amber-500/30 hover:scale-105 transition-all duration-200"
+      >
+        <span>Chamar no WhatsApp e Liberar Teste</span>
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+
+</Layout>

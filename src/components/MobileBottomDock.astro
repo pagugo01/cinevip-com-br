@@ -1,0 +1,107 @@
+---
+// src/components/MobileBottomDock.astro - Menu Inferior Fixo Mobile com Ícones Coloridos
+import { SITE_CONFIG } from '../config/site';
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  {
+    label: 'Início',
+    href: '/',
+    icon: 'home',
+    color: 'text-cyan-400',
+    stroke: 'stroke-cyan-400',
+    bg: 'bg-cyan-950/60'
+  },
+  {
+    label: 'Planos',
+    href: '/planos/',
+    icon: 'pricing',
+    color: 'text-amber-400',
+    stroke: 'stroke-amber-400',
+    bg: 'bg-amber-950/60'
+  },
+  {
+    label: 'Aparelhos',
+    href: '/aparelhos/',
+    icon: 'devices',
+    color: 'text-purple-400',
+    stroke: 'stroke-purple-400',
+    bg: 'bg-purple-950/60'
+  },
+  {
+    label: 'Guias',
+    href: '/guias/',
+    icon: 'guides',
+    color: 'text-emerald-400',
+    stroke: 'stroke-emerald-400',
+    bg: 'bg-emerald-950/60'
+  },
+  {
+    label: 'Teste 6h',
+    href: '/ir/teste-gratis/',
+    icon: 'test',
+    color: 'text-yellow-300',
+    stroke: 'stroke-yellow-400',
+    bg: 'bg-yellow-950/60'
+  }
+];
+---
+
+<nav 
+  aria-label="Navegação Rápida Mobile"
+  class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-[#02040a]/95 backdrop-blur-xl border-t border-amber-500/15 shadow-[0_-8px_24px_rgba(0,0,0,0.8)] safe-bottom"
+>
+  <div class="grid grid-cols-5 h-14 sm:h-16 px-1 items-center">
+    {navItems.map((item) => {
+      const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+      return (
+        <a 
+          href={item.href}
+          class={`flex flex-col items-center justify-center gap-1 py-1 px-1 rounded-xl transition-all duration-150 ${
+            isActive ? `${item.bg} scale-105` : 'opacity-85 hover:opacity-100'
+          }`}
+        >
+          {item.icon === 'home' && (
+            <svg class={`w-5 h-5 ${item.stroke}`} fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          )}
+
+          {item.icon === 'pricing' && (
+            <svg class={`w-5 h-5 ${item.stroke}`} fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          )}
+
+          {item.icon === 'devices' && (
+            <svg class={`w-5 h-5 ${item.stroke}`} fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="15" x="2" y="7" rx="2" ry="2"/>
+              <polyline points="17 2 12 7 7 2"/>
+            </svg>
+          )}
+
+          {item.icon === 'guides' && (
+            <svg class={`w-5 h-5 ${item.stroke}`} fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0.5-5"/>
+              <path d="M6 6h10"/>
+              <path d="M6 10h10"/>
+            </svg>
+          )}
+
+          {item.icon === 'test' && (
+            <svg class={`w-5 h-5 ${item.stroke}`} fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          )}
+
+          <span class={`text-[10px] font-black tracking-tight leading-none ${item.color}`}>
+            {item.label}
+          </span>
+        </a>
+      );
+    })}
+  </div>
+</nav>
